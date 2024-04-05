@@ -3,7 +3,7 @@ on:
   workflow_dispatch:
       inputs:
         package_name:
-          description: "com.miHoYo.GenshinImpact:"
+          description: "com.pixonic.wwr:"
           required: true
 
 jobs:
@@ -19,7 +19,7 @@ jobs:
     - run: |
         chmod +x ./gradlew
         sed -i 's/moduleDescription = "/moduleDescription = "(${{ github.event.inputs.package_name }}) /g' module.gradle
-        sed -i "s/com.miHoYo.GenshinImpact/${{ github.event.inputs.package_name }}/g" module/src/main/cpp/game.h
+        sed -i "s/com.pixonic.wwr/${{ github.event.inputs.package_name }}/g" module/src/main/cpp/game.h
         ./gradlew :module:assembleRelease
     - uses: actions/upload-artifact@v3
       with:
