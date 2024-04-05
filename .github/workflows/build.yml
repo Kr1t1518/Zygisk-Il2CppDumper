@@ -3,7 +3,7 @@ on:
   workflow_dispatch:
       inputs:
         package_name:
-          description: "com.pixonic.wwr:"
+          description: "com.pixonic.wwr"
           required: true
 
 jobs:
